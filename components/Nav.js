@@ -48,6 +48,9 @@ export default function Nav() {
         <Link href="/careers" className={is("/careers")}>
           Careers
         </Link>
+        <Link href="/leaderboard" className={is("/leaderboard")}>
+          Leaderboard
+        </Link>
         {user?.role === "instructor" && (
           <Link href="/instructor" className={is("/instructor")}>
             Publish

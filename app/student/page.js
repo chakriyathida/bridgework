@@ -51,8 +51,8 @@ export default function StudentPage() {
             {user ? `What are you working on, ${user.name.split(" ")[0]}?` : "What are you working on?"}
           </h1>
           <p className="muted" style={{ maxWidth: 620 }}>
-            Pick the topic you have homework on. We&apos;ll show you the jobs that use it, and let you
-            try one.
+            Pick the topic you have homework on. We&apos;ll show you where it&apos;s used in the real
+            world, and let you try it.
             {done > 0 && ` You've completed ${done} simulation${done === 1 ? "" : "s"} so far.`}
           </p>
         </div>
@@ -125,7 +125,8 @@ export default function StudentPage() {
             <hr className="hero-rule" />
             <div className="stack stack-2">
               <h2>
-                {sims.length} job{sims.length === 1 ? "" : "s"} use {topic.toLowerCase()}
+                {sims.length} real-world application{sims.length === 1 ? "" : "s"} of{" "}
+                {topic.toLowerCase()}
               </h2>
               <p className="muted small">
                 {grade} · {subject} · {topic}
@@ -165,7 +166,7 @@ export default function StudentPage() {
 
             {relatedCareers.length > 0 && (
               <div className="stack stack-3">
-                <p className="eyebrow">Careers that also use this topic</p>
+                <p className="eyebrow">Careers built on this topic</p>
                 <div className="row" style={{ gap: 8 }}>
                   {relatedCareers.map((c) => (
                     <Link key={c.id} href={`/careers/${c.id}`} className="btn btn-ghost btn-sm">

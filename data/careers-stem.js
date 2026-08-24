@@ -130,13 +130,36 @@ export const STEM_CAREERS = [
     demand: "Consistent — construction, land titling and infrastructure all depend on it.",
   },
   {
-    id: "carpenter",
-    title: "Carpenter",
-    field: "Construction & trades",
+    id: "rescue-technician",
+    title: "Rescue Crew Member",
+    field: "Emergency services",
     simId: "roof-rafter",
     degreeRequired: false,
     blurb:
-      "Uses Pythagoras three or four times a day and has never once called it that.",
+      "Ladders, ropes, cutting gear and fast decisions. Half the job is working out what will reach, and whether it will hold.",
+    day: [
+      "Check and maintain every piece of kit before a shift",
+      "Work out reach, angles and safe footing at speed",
+      "Get people out of buildings, cars and water",
+      "Keep frightened people calm and told what's happening",
+      "Train constantly, because you can't look things up mid-rescue",
+    ],
+    subjects: [
+      { grade: "Grade 9", subject: "Mathematics", topic: "Pythagoras' theorem" },
+      { grade: "Grade 9", subject: "Science", topic: "Forces, levers & the human body" },
+    ],
+    pathway:
+      "Recruit training, then years of it on the job. No degree — you're paid from the first week and tested on fitness and judgement rather than exam results.",
+    pay: "Salaried, with allowances for shifts and specialist skills.",
+    demand: "Every province needs crews, and rural stations are hardest to staff.",
+  },
+  {
+    id: "carpenter",
+    title: "Carpenter",
+    field: "Construction & trades",
+    degreeRequired: false,
+    blurb:
+      "Turning flat timber into something that holds a roof up. Uses Pythagoras three or four times a day and has never once called it that.",
     day: [
       "Set out and square a foundation with a tape and a string line",
       "Calculate rafter lengths, cut angles and material orders",

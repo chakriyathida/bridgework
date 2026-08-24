@@ -16,7 +16,7 @@ export default function Home() {
             Most students are taught to copy, memorise and pass. Nobody shows them what any of it is
             for, so the ones who can&apos;t see the point leave — long before anyone asks them what they
             want to be. Bridgework takes the topic a student is studying <em>this week</em> and drops
-            them into a real job that uses it.
+            them into the real work that uses it.
           </p>
           <div className="row">
             <Link href="/student" className="btn btn-primary">
@@ -48,7 +48,7 @@ export default function Home() {
             </div>
             <div>
               <span className="n">02</span>
-              <h3>Do the job, not a quiz</h3>
+              <h3>Do the work, not a quiz</h3>
               <p className="muted small" style={{ marginTop: 6 }}>
                 They get a real brief with real numbers, make three decisions a practitioner actually
                 makes, and get marked the way a supervisor would mark them.

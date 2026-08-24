@@ -6,18 +6,22 @@ import { useEffect, useMemo, useState } from "react";
 import { findSimulation } from "@/lib/catalog";
 import { getCareer } from "@/data/careers";
 import { gradeAll } from "@/lib/grade";
-import { getPublished, recordAttempt, subscribe } from "@/lib/store";
+import { getPublished, getSession, recordAttempt, subscribe } from "@/lib/store";
 
 export default function SimulationPage() {
   const { id } = useParams();
   const [published, setPublished] = useState([]);
+  const [user, setUser] = useState(null);
   const [loaded, setLoaded] = useState(false);
   const [stepIdx, setStepIdx] = useState(0);
   const [answers, setAnswers] = useState({});
   const [result, setResult] = useState(null);
 
   useEffect(() => {
-    const sync = () => setPublished(getPublished());
+    const sync = () => {
+      setPublished(getPublished());
+      setUser(getSession());
+    };
     sync();
     setLoaded(true);
     return subscribe(sync);
@@ -37,6 +41,46 @@ export default function SimulationPage() {
             <Link href="/student" className="btn btn-primary">
               Back to topics
             </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+
+  // You need an account to attempt a simulation — that's what makes a score
+  // mean anything, and what the leaderboard is built on.
+  if (!user) {
+    return (
+      <div className="narrow section">
+        <div className="stack stack-6">
+          <div className="stack stack-3">
+            <p className="eyebrow">Sign in to continue</p>
+            <h1 style={{ fontSize: 32 }}>{sim.title}</h1>
+            <p className="muted">
+              {sim.role} · {sim.curriculum.grade} · {sim.curriculum.topic}
+            </p>
+          </div>
+
+          <div className="card card-pad-lg">
+            <div className="stack stack-4">
+              <p>
+                You need an account before you can start. Your answers are marked and saved to your
+                progress, and your score counts towards the leaderboard — none of that works if we
+                don&apos;t know who you are.
+              </p>
+              <p className="small muted">
+                It takes about ten seconds. There is no password and nothing leaves this device.
+              </p>
+              <div className="row">
+                <Link href="/login" className="btn btn-primary">
+                  Create an account or sign in
+                </Link>
+                <Link href="/careers" className="btn btn-ghost">
+                  Look around first
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </div>
