@@ -269,6 +269,64 @@ export default function SimulationPage() {
                   </div>
                 )}
 
+
+                {step.type === "blocks" && (
+                  <div className="blocks-wrap">
+                    <div className="blocks-col">
+                      <span className="blocks-head">Blocks you can use</span>
+                      {step.palette.map((b) => (
+                        <button
+                          key={b.id}
+                          type="button"
+                          className={`blk blk-${b.cat}`}
+                          onClick={() => setAnswer([...(answers[step.id] || []), b.id])}
+                        >
+                          {b.label}
+                        </button>
+                      ))}
+                    </div>
+                    <div className="blocks-col">
+                      <span className="blocks-head">Your script</span>
+                      <div className="script-drop">
+                        {(answers[step.id] || []).length === 0 ? (
+                          <span className="script-empty">
+                            Click a block on the left to add it here
+                          </span>
+                        ) : (
+                          (answers[step.id] || []).map((id, i) => {
+                            const b = step.palette.find((x) => x.id === id);
+                            if (!b) return null;
+                            return (
+                              <button
+                                key={`${id}-${i}`}
+                                type="button"
+                                className={`blk blk-${b.cat}${b.cat === "motion" && i > 0 ? " blk-nested" : ""}`}
+                                onClick={() =>
+                                  setAnswer((answers[step.id] || []).filter((_, j) => j !== i))
+                                }
+                                title="Remove this block"
+                              >
+                                <span className="idx">{i + 1}</span>
+                                {b.label}
+                                <span className="rm" aria-hidden="true">×</span>
+                              </button>
+                            );
+                          })
+                        )}
+                      </div>
+                      {(answers[step.id] || []).length > 0 && (
+                        <button
+                          type="button"
+                          className="btn btn-ghost btn-sm"
+                          onClick={() => setAnswer([])}
+                        >
+                          Clear script
+                        </button>
+                      )}
+                    </div>
+                  </div>
+                )}
+
                 {step.type === "text" && (
                   <label className="field">
                     <span>

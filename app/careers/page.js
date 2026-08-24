@@ -19,11 +19,12 @@ export default function CareersPage() {
       <div className="stack stack-8">
         <div className="stack stack-3">
           <p className="eyebrow">Careers</p>
-          <h1 style={{ fontSize: 34 }}>Jobs nobody told you existed</h1>
+          <h1 style={{ fontSize: 34 }}>Explore career simulations</h1>
           <p className="muted" style={{ maxWidth: 620 }}>
             Ask a fourteen-year-old to name five jobs and you&apos;ll usually get doctor, teacher,
-            police, soldier, and one relative&apos;s. Here are {CAREERS.length} more, each one traced
-            back to the school subjects that power it.
+            police, soldier, and one relative&apos;s. Everything here is a job somebody does on an
+            ordinary Tuesday, traced back to the school topics it actually uses — and most of them
+            you can try, not just read about.
           </p>
         </div>
 
@@ -63,7 +64,7 @@ export default function CareersPage() {
                 <h3>{c.title}</h3>
                 <p className="small muted">{c.blurb}</p>
                 <p className="small mono" style={{ color: "var(--ink-3)" }}>
-                  Powered by {c.subjects.map((s) => s.subject).join(" · ")}
+                  Uses {c.subjects.map((s) => s.topic).join(" · ")}
                 </p>
               </div>
             </Link>

@@ -1,7 +1,9 @@
 // Seed simulations. Each one is anchored to a named curriculum topic and written
 // from a real job task. Steps are graded deterministically by lib/grade.js.
 
-export const SIMULATIONS = [
+import { STEM_SIMULATIONS } from "./simulations-stem";
+
+const FIELD_SIMULATIONS = [
   {
     id: "water-chlorine",
     title: "Is this village's water safe to drink today?",
@@ -392,6 +394,8 @@ export const SIMULATIONS = [
     ],
   },
 ];
+
+export const SIMULATIONS = [...STEM_SIMULATIONS, ...FIELD_SIMULATIONS];
 
 export function getSimulation(id) {
   return SIMULATIONS.find((s) => s.id === id) || null;

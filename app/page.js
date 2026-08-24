@@ -1,15 +1,16 @@
 import Link from "next/link";
 import { SIMULATIONS } from "@/data/simulations";
-import { CAREERS } from "@/data/careers";
+
 
 export default function Home() {
-  const featured = SIMULATIONS.slice(0, 3);
+  const featuredIds = ["draw-square", "solar-tilt", "water-chlorine"];
+  const featured = featuredIds.map((id) => SIMULATIONS.find((s) => s.id === id)).filter(Boolean);
 
   return (
     <>
       <section className="container section">
         <div className="stack stack-6" style={{ maxWidth: 720 }}>
-          <p className="eyebrow">Accessible education · Built for Cambodia first</p>
+          <p className="eyebrow">Accessible education · School subjects, real jobs</p>
           <h1>The ratio question in your homework decides whether 300 people drink safe water.</h1>
           <p style={{ fontSize: 18, color: "var(--ink-2)" }}>
             Most students are taught to copy, memorise and pass. Nobody shows them what any of it is
@@ -19,10 +20,10 @@ export default function Home() {
           </p>
           <div className="row">
             <Link href="/student" className="btn btn-primary">
-              Try a simulation
+              Explore real-world applications
             </Link>
             <Link href="/careers" className="btn btn-ghost">
-              Explore {CAREERS.length} careers
+              Explore career simulations
             </Link>
           </div>
         </div>

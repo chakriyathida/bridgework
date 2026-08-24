@@ -1,7 +1,9 @@
 // Career cards. The point of this list is that almost none of them are
 // "doctor", "teacher" or "engineer" — the three jobs most students can name.
 
-export const CAREERS = [
+import { STEM_CAREERS } from "./careers-stem";
+
+const COMMUNITY_CAREERS = [
   {
     id: "water-quality-technician",
     title: "Water Quality Technician",
@@ -271,6 +273,8 @@ export const CAREERS = [
     demand: "Strong globally.",
   },
 ];
+
+export const CAREERS = [...STEM_CAREERS, ...COMMUNITY_CAREERS];
 
 export function getCareer(id) {
   return CAREERS.find((c) => c.id === id) || null;

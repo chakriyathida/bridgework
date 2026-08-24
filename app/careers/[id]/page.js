@@ -56,7 +56,7 @@ export default async function CareerPage({ params }) {
         </div>
 
         <div className="stack stack-4">
-          <h2>The school subjects behind it</h2>
+          <h2>The school topics it actually uses</h2>
           <div className="grid grid-2">
             {career.subjects.map((s) => (
               <div className="card" key={`${s.subject}-${s.topic}`}>
